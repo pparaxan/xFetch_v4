@@ -1,0 +1,15 @@
+[package]
+name = "xfetch"
+version = "3.0.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.40", features = ["macros", "rt-multi-thread", "io-util", "fs"] }
+sysinfo_dot_h = "0.2.1"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
