@@ -8,14 +8,21 @@ World's _fastest_* and simplest fetch.
 ![Only for Arch Linux](https://img.shields.io/badge/Only%20For%20Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff&style=for-the-badge)
 ![Binary Size](https://img.shields.io/badge/Binary_Size-Miniscule_(100%20kb)-7ED321?logo=hack-the-box&logoColor=fff&style=for-the-badge)
 
-
-## Arch User Repository
+## Installation
+### Arch User Repository
 
 ```sh
 <AUR> -S xfetch-bin
 ```
 
-### Build
+### `makepkg`
+
+```sh
+curl -o PKGBUILD 'https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=xfetch-bin' | makepkg --si
+```
+
+
+## Build
 
 ```sh
 git clone https://codeberg.org/XDR/xFetch.git
