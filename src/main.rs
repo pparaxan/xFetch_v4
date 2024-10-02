@@ -19,10 +19,10 @@ async fn main() -> io::Result<()> {
     let uptime_thread = spawn(async { uptime::get_uptime().await });
 
     let (usr, distro, shell, pkg, uptime) = join!(
-        distro_thread,
         name_thread,
-        packages_thread,
+        distro_thread,
         shell_thread,
+        packages_thread,
         uptime_thread
     );
 
