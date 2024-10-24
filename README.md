@@ -10,16 +10,8 @@ World's _fastest_* and simplest fetch.
 ![Binary Size](https://img.shields.io/badge/Binary_Size-Miniscule_(100%20kb)-7ED321?logo=hack-the-box&logoColor=fff&style=for-the-badge)
 
 ## Installation
-### Arch User Repository
-
 ```sh
-<AUR> -S xfetch-bin
-```
-
-### `makepkg`
-
-```sh
-curl -o PKGBUILD 'https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=xfetch-bin' | makepkg --si
+mkdir xFetch && cd xFetch/; curl -o PKGBUILD 'https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=xfetch-bin'; makepkg --si
 ```
 
 
