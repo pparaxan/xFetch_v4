@@ -1,6 +1,6 @@
 [package]
 name = "xfetch"
-version = "3.0.2"
+version = "4.0.0" # Pushed v3.1.0 and I forgor to update the version in Cargo.toml :bigbrain:
 edition = "2021"
 
 [dependencies]
