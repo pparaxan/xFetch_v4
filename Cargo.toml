@@ -4,7 +4,7 @@ version = "3.0.2"
 edition = "2021"
 
 [dependencies]
-tokio = { version = "1.41", features = ["macros", "rt-multi-thread", "io-util", "fs"] }
+tokio = { version = "1.42", features = ["macros", "rt-multi-thread", "io-util", "fs"] }
 sysinfo_dot_h = "0.2.1"
 
 [profile.release]
