@@ -15,7 +15,7 @@ async fn main() -> io::Result<()> {
     let distro_thread = spawn(async { distro::get_distro_name().await });
     let username_thread = spawn(async { get_env_var!("USER") });
     let hostname_thread = spawn(async { get_env_var!("hostname") });
-    let packages_thread = spawn(async { packages::get_current_packages() });
+    let packages_thread = spawn(async { packages::get_current_packages().await });
     let shell_thread = spawn(async { shell::get_current_shell().await });
     let uptime_thread = spawn(async { uptime::get_uptime().await });
 
