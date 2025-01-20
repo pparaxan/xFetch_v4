@@ -19,14 +19,16 @@ async fn main() -> io::Result<()> {
     let packages_thread = spawn(async { packages::get_current_packages().await });
     let shell_thread = spawn(async { shell::get_current_shell().await });
     let uptime_thread = spawn(async { uptime::get_uptime().await });
+    let terminal_thread = spawn(async { get_env_var!("TERM") });
 
-    let (username, hostname, distro, shell, pkg, uptime) = join!(
+    let (username, hostname, distro, shell, pkg, uptime, terminal) = join!(
         username_thread,
         hostname_thread,
         distro_thread,
         shell_thread,
         packages_thread,
         uptime_thread,
+        terminal_thread
     );
 
     let distro = distro.unwrap();
@@ -35,14 +37,15 @@ async fn main() -> io::Result<()> {
     let uptime = uptime.unwrap();
     let username = username.unwrap();
     let hostname = hostname.unwrap();
+    let terminal = terminal.unwrap();
     let mut handle = io::stdout().lock(); // Lock stdout for slightly faster writing
 
     writeln!(handle, "{}@{}", username, hostname);
     writeln_to_handle_if_not_empty!(handle, "", distro);
     writeln_to_handle_if_not_empty!(handle, "", shell);
-    writeln_to_handle_if_not_empty!(handle, "󰏗", pkg); // pacman only
+    writeln_to_handle_if_not_empty!(handle, "󰏗", pkg); // pacman pkgs only
     writeln_to_handle_if_not_empty!(handle, "", uptime);
-    writeln_to_handle_if_not_empty!(handle, "", "Terminal Here");
+    writeln_to_handle_if_not_empty!(handle, "", terminal);
 
     drop(handle);
     Ok(())
