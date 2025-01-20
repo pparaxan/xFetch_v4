@@ -40,8 +40,11 @@ async fn main() -> io::Result<()> {
     let terminal = terminal.unwrap();
     let mut handle = io::stdout().lock(); // Lock stdout for slightly faster writing
 
-    writeln!(handle, "{}@{}", username, hostname);
+    // writeln!(handle, "\x1B[0mxx\x1B[0;3mx\x1B[0;1mFetch\x1B[0m");
+    // writeln!(handle, "This is my \x1B[0;3mx\x1B[0;1mFetch\x1B[0m btw");
+    // writeln!(handle, "'I use \x1B[0;3mxfetch\x1B[0m btw.'");
     writeln_to_handle_if_not_empty!(handle, "", distro);
+    writeln_to_handle_if_not_empty!(handle, "󱩛", username, "@", hostname);
     writeln_to_handle_if_not_empty!(handle, "", shell);
     writeln_to_handle_if_not_empty!(handle, "󰏗", pkg); // pacman pkgs only
     writeln_to_handle_if_not_empty!(handle, "", uptime);
