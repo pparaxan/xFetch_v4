@@ -1,5 +1,4 @@
-use tokio::fs::File;
-use tokio::io::{AsyncBufReadExt, BufReader};
+use tokio::{fs::File, io::{AsyncBufReadExt, BufReader}};
 
 pub async fn get_distro_name() -> String {
     let file = File::open("/etc/os-release").await.expect("Can't find the file \"etc/os-release\"");
