@@ -1,8 +1,8 @@
-<img src="assets/xFetch.jpg" align="right" width="300">
+<img src="showcase.png" align="right" width="300">
 
 ### xFetch
 
-World's _fastest_* and simplest fetch.
+World's _fastest_* fetch.
 
 ![Last Commit](https://img.shields.io/gitea/last-commit/XDR/xFetch?display_timestamp=committer&gitea_url=https%3A%2F%2Fcodeberg.org&style=for-the-badge)
 ![Made with Rust](https://img.shields.io/badge/made%20with%20rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)
@@ -18,7 +18,7 @@ mkdir xFetch && cd xFetch/; curl -o PKGBUILD 'https://aur.archlinux.org/cgit/aur
 ## Build
 
 ```sh
-git clone https://codeberg.org/XDR/xFetch.git
+git clone https://codeberg.org/pparaxan/xFetch.git
 cd xFetch
 RUSTFLAGS="-Zlocation-detail=none" cargo build --target x86_64-unknown-linux-gnu --profile release -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort
 ```
